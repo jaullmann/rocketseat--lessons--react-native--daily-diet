@@ -44,3 +44,12 @@ export const Text = styled.Text`
     font-size: ${theme.FONT_SIZE.SM}px;        
   `};
 `
+
+export const ExpandIcon = styled(ArrowUpRight).attrs<ScoreCardStyleProps>(({ theme, score }) => ({
+  size: 24,
+  color: score >= 0.7 ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
+}))`
+  position: absolute;
+  top: 8px;
+  right: 8px;  
+`;

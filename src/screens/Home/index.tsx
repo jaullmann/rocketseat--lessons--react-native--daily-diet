@@ -14,7 +14,7 @@ export function Home() {
         <Avatar source={avatarImg} />
       </Header>
 
-      <ScoreCard score={1}/>
+      <ScoreCard score={0.7517}/>
 
     </Container>
   );
