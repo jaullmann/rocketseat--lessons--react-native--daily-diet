@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 
 export const Label = styled.Text`
   width: 100%;
-  margin: 0 0 8px;
+  margin: 32px 0 0;
 
   text-align: left;
   ${({ theme }) => css`

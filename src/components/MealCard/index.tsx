@@ -1,3 +1,4 @@
+import { TouchableOpacityProps } from "react-native";
 import { Container, Timestamp, MealDescription, CardStatus, VerticalLineIcon } from "./styles";
 
 function formattedTime(date: Date): string {
@@ -6,7 +7,7 @@ function formattedTime(date: Date): string {
   return `${hour}:${minute}`
 }
 
-type Props = {  
+type Props = TouchableOpacityProps & {  
   time: Date,
   description: string,
   onDiet: boolean,

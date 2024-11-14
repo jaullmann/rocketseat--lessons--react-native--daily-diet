@@ -1,12 +1,18 @@
 import { Container, Header, Logo, Avatar, Label } from './styles';
 
-import { ScoreCard } from '@components/ScoreCard';
 import { Button } from '@components/Button';
+import { ScoreCard } from '@components/ScoreCard';
+import { DailyCardsGroup } from '@components/DailyCardsGroup';
 
 import logoImg from '@assets/mainLogo.png';
 import avatarImg from '@assets/avatar.png';
-import { DateLabel } from '@components/DateLabel';
-import { MealCard } from '@components/MealCard';
+
+const meals = [
+  {title: 'Salada de batada', description: 'Salada de batada', date: new Date('2024-11-14 13:35:18'), onDiet: true },
+  {title: 'Salada de ameixas', description: 'Salada de batada', date: new Date('2024-11-14 18:25:18'), onDiet: true },
+  {title: 'Pepinos com beterrabas', description: 'Salada de batada', date: new Date('2024-11-14 19:12:18'), onDiet: false },
+  {title: 'Torta de morangos', description: 'Salada de batada', date: new Date('2024-11-14 22:45:18'), onDiet: true }
+]
 
 export function Home() {
   return (
@@ -26,24 +32,9 @@ export function Home() {
       <Button 
         title={'Adicionar Refeição'}
         type={'ADD'}
-      />
+      />     
 
-      <DateLabel date={new Date('2024-11-13')} />
-      <MealCard 
-        time={new Date('2024-11-13')}
-        description={'Salada de batata com ovos, azeitonas e creme azedo'}
-        onDiet={false}
-      />
-      <MealCard 
-        time={new Date('2024-11-13')}
-        description={'Feijoada'}
-        onDiet={false}
-      />
-      <MealCard 
-        time={new Date('2024-11-13')}
-        description={'Legumes no vapor'}
-        onDiet={true}
-      />
+      <DailyCardsGroup dailyMeals={meals}/> 
 
     </Container>
   );

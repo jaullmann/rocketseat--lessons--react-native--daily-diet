@@ -11,7 +11,7 @@ export const Container = styled(TouchableOpacity)<CardProps>`
   width: 100%;
   min-height: 50px;
   max-height: 50px;
-  margin-bottom: 8px;
+  margin-top: 8px;
 
   flex-direction: row;
   align-items: center;
