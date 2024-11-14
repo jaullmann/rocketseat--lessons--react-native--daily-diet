@@ -1,13 +1,6 @@
 import { TouchableOpacityProps } from "react-native";
 
-import { 
-    ButtonTypeStyleProps,
-    Container, 
-    Title, 
-    PlusIcon, 
-    EditIcon, 
-    TrashIcon,
-} from "./styles";
+import { ButtonTypeStyleProps, Container, Title, PlusIcon, EditIcon, DeleteIcon } from "./styles";
 
 type Props = TouchableOpacityProps & {
     title: string;
@@ -16,8 +9,32 @@ type Props = TouchableOpacityProps & {
 
 export function Button({ title, type = 'REGULAR', ...rest }: Props){
     return(
-        <Container {...rest}>
-            { type === 'REGULAR' && <Title> {title} </Title> }
+        <Container type={type} {...rest}>
+            { 
+              type === 'REGULAR' && 
+              <Title> {title} </Title> 
+            }
+            { 
+              type === 'ADD' && 
+              <>
+                <PlusIcon />
+                <Title> {title} </Title>
+              </>               
+            }
+            { 
+              type === 'EDIT' && 
+              <>
+                <EditIcon />
+                <Title> {title} </Title>
+              </>               
+            }
+            { 
+              type === 'DELETE' && 
+              <>
+                <DeleteIcon />
+                <Title> {title} </Title>
+              </>               
+            }
         </Container>
     )
 }
