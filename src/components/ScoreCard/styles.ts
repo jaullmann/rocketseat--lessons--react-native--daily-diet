@@ -6,6 +6,7 @@ import styled, { css } from "styled-components/native";
 
 export type ScoreCardStyleProps = {
     score: number;
+    scoreTarget: number;
 }
 
 export const Container = styled(TouchableOpacity)<ScoreCardStyleProps>`
@@ -22,7 +23,7 @@ export const Container = styled(TouchableOpacity)<ScoreCardStyleProps>`
   border-radius: 8px;
   padding: 20px 16px;
 
-  background-color: ${({ theme, score }) => score >= 0.7 ? 
+  background-color: ${({ theme, score, scoreTarget }) => score >= scoreTarget ? 
     theme.COLORS.GREEN_LIGHT :  theme.COLORS.RED_MID
   }  
 `
@@ -45,9 +46,9 @@ export const Text = styled.Text`
   `};
 `
 
-export const ExpandIcon = styled(ArrowUpRight).attrs<ScoreCardStyleProps>(({ theme, score }) => ({
+export const ExpandIcon = styled(ArrowUpRight).attrs<ScoreCardStyleProps>(({ theme, score, scoreTarget }) => ({
   size: 24,
-  color: score >= 0.7 ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
+  color: score >= scoreTarget ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
 }))`
   position: absolute;
   top: 8px;

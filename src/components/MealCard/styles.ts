@@ -8,7 +8,8 @@ type CardProps = {
 }
 
 export const Container = styled(TouchableOpacity)<CardProps>`
-  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
   min-height: 50px;
   max-height: 50px;
   margin-top: 8px;
@@ -35,26 +36,25 @@ export const Timestamp = styled.Text`
 `
 
 export const MealDescription =  styled.Text`
-min-width: 76%;
-max-width: 76%;
+  flex: 1;
 
-white-space: nowrap;        
-overflow: hidden;           
-text-overflow: ellipsis;
+  white-space: nowrap;        
+  overflow: hidden;           
+  text-overflow: ellipsis;
 
-text-align: left;
-  ${({ theme }) => css`
-    font-size: ${theme.FONT_SIZE.MD}px;
-    font-family: ${theme.FONT_FAMILY.REGULAR};
-    color: ${theme.COLORS.GRAY_200};
-  `}  
+  text-align: left;
+    ${({ theme }) => css`
+      font-size: ${theme.FONT_SIZE.MD}px;
+      font-family: ${theme.FONT_FAMILY.REGULAR};
+      color: ${theme.COLORS.GRAY_200};
+    `}  
 `
 
 export const CardStatus = styled(View)<CardProps>`
   width: 14px;
   height: 14px;
 
-  margin: 0 12px;
+  margin: 0;
   
   border-radius: 50%;
 

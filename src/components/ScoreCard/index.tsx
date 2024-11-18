@@ -4,6 +4,7 @@ import { Container, Title, Text, ScoreCardStyleProps, ExpandIcon } from "./style
 
 type Props = TouchableOpacityProps & ScoreCardStyleProps & {
   score: number;
+  scoreTarget: number;
 }
 
 function formatToPercentage(num: number) {
@@ -14,10 +15,10 @@ function formatToPercentage(num: number) {
   }).format(num);
 }
 
-export function ScoreCard({ score = 0, ...rest }: Props){
+export function ScoreCard({ score = 0, scoreTarget = 0.7,  ...rest }: Props){
   return(
-    <Container score={score} {...rest}>
-      <ExpandIcon score={score} />
+    <Container score={score} scoreTarget={scoreTarget} {...rest}>
+      <ExpandIcon score={score} scoreTarget={scoreTarget} />
       <Title>
         {formatToPercentage(score)}
       </Title>

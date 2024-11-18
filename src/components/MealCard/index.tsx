@@ -1,30 +1,24 @@
 import { TouchableOpacityProps } from "react-native";
 import { Container, Timestamp, MealDescription, CardStatus, VerticalLineIcon } from "./styles";
 
-function formattedTime(date: Date): string {
-  const hour = String(date.getHours()).padStart(2, '0');
-  const minute = String(date.getMinutes()).padStart(2, '0');
-  return `${hour}:${minute}`
-}
-
 type Props = TouchableOpacityProps & {  
-  time: Date,
-  description: string,
+  time: string,
+  title: string,  
   onDiet: boolean,
 }
 
-export function MealCard({ time, description, onDiet }: Props){
+export function MealCard({ time, title, onDiet }: Props){
   return(
     <Container onDiet={onDiet}>
       
       <Timestamp>
-        {formattedTime(time)}
+        {time}
       </Timestamp>
 
       <VerticalLineIcon />
 
-      <MealDescription>
-        {description}
+      <MealDescription> 
+        {title}
       </MealDescription>
 
       <CardStatus onDiet={onDiet}/>

@@ -6,7 +6,8 @@ import { MealCard } from "@components/MealCard";
 type Meal = {
   title: string,
   description: string,
-  date: Date,
+  date: string,
+  time: string,
   onDiet: boolean
 }
 
@@ -18,17 +19,16 @@ type DailyCardsGroupProps = {
 export function DailyCardsGroup({ dailyMeals }: DailyCardsGroupProps) {
   return(
     <View>
-      <DateLabel date={dailyMeals[0].date} />
+      {dailyMeals.length > 0 && <DateLabel date={dailyMeals[0].date} />}
       <FlatList 
         data={dailyMeals}
-        keyExtractor={(_, index) => index.toString()}
-        renderItem={({ item, index }) => (
-          <MealCard 
-            key={index}
-            time={item.date}
-            description={item.description}
+        keyExtractor={(item, index) => item.date + '_' + item.time + '_' + index}
+        renderItem={({ item }) => (
+          <MealCard             
+            time={item.time}
+            title={item.title}
             onDiet={item.onDiet}
-            onPress={() => null}
+            onPress={() => {}}
           />
         )}
       />
