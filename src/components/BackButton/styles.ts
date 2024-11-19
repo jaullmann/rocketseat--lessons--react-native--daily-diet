@@ -2,15 +2,19 @@ import styled from "styled-components/native";
 
 import { ArrowLeft } from "phosphor-react-native";
 
-type ScreenProps = {
-  onDiet?: boolean
+export type ButtonProps = {
+  styledButton?: boolean;
+  onDiet?: boolean;
 }
 
-export const BackIcon = styled(ArrowLeft).attrs<ScreenProps>(({ theme, score }) => ({
+export const BackIcon = styled(ArrowLeft).attrs<ButtonProps>(({ theme, styledButton, onDiet }) => ({
   size: 24,
-  color: score >= 0.7 ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
+  color: !styledButton ? 
+    theme.COLORS.GRAY_200 : onDiet ?
+      theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
 }))`
-  position: absolute;
-  top: 8px;
-  right: 8px;  
+  position: absolute;  
+  
+  top: 50px;
+  left: 24px;
 `;

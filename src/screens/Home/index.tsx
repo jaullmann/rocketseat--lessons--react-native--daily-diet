@@ -1,6 +1,7 @@
-import { Container, Header, Logo, Avatar, Label } from './styles';
+import { useState } from 'react';
 
 import { FlatList } from 'react-native';
+import { Container, Header, Logo, Avatar, Label } from './styles';
 
 import { Button } from '@components/Button';
 import { ScoreCard } from '@components/ScoreCard';
@@ -25,6 +26,10 @@ const uniqueDates = Array.from(new Set(dates.map(date => date)));
 
 
 export function Home() {
+
+  const [score, setScore] = useState(0);
+  const [scoreTarget, setScoreTarget] = useState(0.7);
+
   return (
     <Container>
       
@@ -33,7 +38,7 @@ export function Home() {
         <Avatar source={avatarImg} />
       </Header>
 
-      <ScoreCard score={0.7517} scoreTarget={0.7}/>
+      <ScoreCard score={score} scoreTarget={scoreTarget}/>
 
       <Label>
         Refeições

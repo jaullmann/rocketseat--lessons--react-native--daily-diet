@@ -37,7 +37,7 @@ export const Title = styled.Text`
   `};
 `
 
-export const Text = styled.Text`
+export const Description = styled.Text`
   text-align: center;
   ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_200};
