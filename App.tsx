@@ -5,7 +5,7 @@ import theme from "./src/theme";
 
 import { Loading } from "@components/Loading";
 
-import { Statistics } from "@screens/Statistics";
+import { Create } from "@screens/Create";
 import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans'
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
           backgroundColor="transparent"
           translucent
         />
-        {fontsLoaded ? <Statistics /> : <Loading />}
+        {fontsLoaded ? <Create /> : <Loading />}
       </>      
     </ThemeProvider>    
   );

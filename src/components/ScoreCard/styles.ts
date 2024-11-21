@@ -24,7 +24,7 @@ export const Container = styled(TouchableOpacity)<ScoreCardStyleProps>`
   padding: 20px 16px;
 
   background-color: ${({ theme, score, scoreTarget }) => score >= scoreTarget ? 
-    theme.COLORS.GREEN_LIGHT :  theme.COLORS.RED_MID
+    theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_MID
   }  
 `
 

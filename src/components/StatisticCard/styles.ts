@@ -15,7 +15,7 @@ export const Container = styled(View)<StyleProps>`
   justify-content: center;
   gap: 8px;
 
-  min-height: ${({ style }) => style === "REGULAR" ? 89 : 89 }px;  
+  min-height: ${({ style }) => style === "REGULAR" ? 89 : 107 }px;  
   max-height: ${({ style }) => style === "REGULAR" ? 89 : 107 }px;    
 
   border-radius: 8px;

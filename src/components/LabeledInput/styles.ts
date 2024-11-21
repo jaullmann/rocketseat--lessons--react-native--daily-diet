@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
-  flex: 1;   
+  flex: 1;  
   gap: 4px;
 
   align-items: center;
@@ -10,8 +10,7 @@ export const Container = styled.View`
   margin-bottom: 24px;
 `
 
-export const Label = styled.Text`
-  flex: 1;
+export const Label = styled.Text`  
   text-align: left;
 
   ${({ theme }) => css`
@@ -21,8 +20,12 @@ export const Label = styled.Text`
   `}
 `
 
-export const Input = styled.TextInput`
-  flex: 1;
+export const Input = styled.TextInput`  
+  width: 100%;
+  
+  min-height: 48px;
+  max-height: 48px;
+  
   padding: 14px;
   border-radius: 6px;
   text-align: left;
