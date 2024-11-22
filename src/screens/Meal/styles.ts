@@ -5,11 +5,9 @@ type styleProps = {
   onDiet: boolean;
 }
 
-export const InfoWrapper = styled.View`
+export const InfoWrapper = styled.View`  
   width: 100%;
   justify-content: left;
-
-  border: 1px solid blue;
 `;
 
 export const ButtonsWrapper = styled.View`
@@ -17,8 +15,6 @@ export const ButtonsWrapper = styled.View`
   
   gap: 9px;
   justify-content: center;
-
-  border: 1px solid darkblue;
 `;
 
 export const Title = styled.Text`
@@ -46,7 +42,7 @@ export const Description = styled.Text`
 `;
 
 export const DatetimeLabel = styled.Text`
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 
   text-align: left;  
 
@@ -57,19 +53,22 @@ export const DatetimeLabel = styled.Text`
   `};
 `;
 
-export const StatusCard = styled.View`
-  height: 34px;
+export const StatusCard = styled.View`  
+  height: 34px;  
+  margin-right: auto;
 
-  gap: 8px;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
   padding: 8px 16px;
-  border-radius: 50%;
+  border-radius: 1000px;
   background-color: ${({ theme }) => theme.COLORS.GRAY_600};
 `;
 
 export const StatusCardText = styled.Text`
+
   ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_100};
     font-family: ${theme.FONT_FAMILY.BOLD};
@@ -79,9 +78,10 @@ export const StatusCardText = styled.Text`
 
 export const StatusCardIndicator = styled(View)<styleProps>`
   width: 8px;
-  height: 8px;
+  height: 8px;  
 
   border-radius: 50%;
-  background-color: ${({ theme, onDiet }) => onDiet ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+  background-color: ${({ theme, onDiet }) => onDiet ? 
+    theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
 `;
 

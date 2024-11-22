@@ -8,16 +8,30 @@ import { InfoWrapper, ButtonsWrapper, Title, Description,
 
 export function Meal(){
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [title, setTitle] = useState('Carregando...');
+  const [description, setDescription] = useState('Carregando...');
+  const [date, setDate] = useState('00/00/0000');
+  const [time, setTime] = useState('00:00');
   const [onDiet, setOnDiet] = useState(true);
 
   return(
     <ScreenPattern title="Refeição">
       <InfoWrapper>
-
+        <Title>
+          {title}
+        </Title>
+        <Description>
+          {description}
+        </Description>
+        <DatetimeLabel>
+          {date + ' às ' + time}
+        </DatetimeLabel>
+        <StatusCard>
+          <StatusCardIndicator onDiet/>
+          <StatusCardText>            
+            {onDiet ? "dentro da dieta" : "fora da dieta"}            
+          </StatusCardText>
+        </StatusCard>
       </InfoWrapper>
       <ButtonsWrapper>
         <Button 
@@ -26,7 +40,7 @@ export function Meal(){
         />
         <Button 
           title="Excluir refeição"
-          type="DELETE"
+          type="DELETE"          
         />
       </ButtonsWrapper>
     </ScreenPattern>

@@ -1,5 +1,4 @@
 import { TouchableOpacityProps } from "react-native";
-
 import { ButtonTypeStyleProps, Container, Title, PlusIcon, EditIcon, DeleteIcon } from "./styles";
 
 type Props = TouchableOpacityProps & {
@@ -32,7 +31,7 @@ export function Button({ title, type = 'REGULAR', ...rest }: Props){
               type === 'DELETE' && 
               <>
                 <DeleteIcon />
-                <Title> {title} </Title>
+                <Title style={{ color: '#1B1D1E' }}> {title} </Title>
               </>               
             }
         </Container>

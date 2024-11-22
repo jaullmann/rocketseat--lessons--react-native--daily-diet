@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Children, ReactNode } from "react";
 import { BackButton } from "@components/BackButton";
 import { BackgroundProps, Container, Title, Main } from "./styles";
 
@@ -7,14 +7,16 @@ type Props = BackgroundProps & {
   children?: ReactNode;
 }
 
-export function ScreenPattern({ title, style = "REGULAR" }: Props){
+export function ScreenPattern({ title, style = "REGULAR", children }: Props){
   return(
     <Container style={style}>
       <BackButton top={57} />
       <Title>
         {title}
       </Title>
-      <Main />
+      <Main>
+        {children}
+      </Main>
     </Container>
   )
 }

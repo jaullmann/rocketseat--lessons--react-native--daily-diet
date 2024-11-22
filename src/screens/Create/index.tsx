@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import { Container, Title, Main, Form, InputWrapper,
   DatetimeSection, Label, ToggleButtonsSection } from "./styles";
+import { ScreenPattern } from "@components/ScreenPattern";
 import { BackButton } from "@components/BackButton";
 import { LabeledInput } from "@components/LabeledInput";
 import { ToggleButton } from "@components/ToggleButton";
@@ -23,7 +24,7 @@ export function Create(){
 
   // const route = useRoute()
   // const { newMeal } = route.params as RouteParams;
-  const newMeal = false;
+  const newMeal = true;
 
   function handleToggleButtons(buttonPressed: string){
     if (buttonPressed === 'yes') {
@@ -39,73 +40,72 @@ export function Create(){
     }
   }
 
-  return(
-    <Container>
-      <BackButton top={57} />
-      <Title>
-        {newMeal ? "Nova Refeição" : "Editar Refeição" }
-      </Title>
+  return(    
+    <ScreenPattern
+      title={newMeal ? "Nova refeição" : "Editar refeição"}
+    >
+      <Form>
 
-      <Main>
-
-        <Form>
-          <LabeledInput 
-            label="Nome"
-            value={title}
-            onChangeText={setTitle}    
-            maxLength={32}        
-          />
-          <LabeledInput 
-            label="Descrição"
-            multiline
-            value={description}
-            onChangeText={setDescription}
-            height={120} 
-            maxLength={180} 
-          />
-          <DatetimeSection>
-            <InputWrapper>
-              <LabeledInput 
-                label="Data"
-                value={date}
-                onChangeText={setDate}
-                maxLength={10}
-              />
-            </InputWrapper>
-            <InputWrapper>
-              <LabeledInput 
-                label="Hora"
-                value={time}
-                onChangeText={setTime}
-                maxLength={5}
-              />
-            </InputWrapper>
-          </DatetimeSection>
-          <View>
-            <Label>
-              Está dentro da dieta?
-            </Label>
-            <ToggleButtonsSection>
-              <ToggleButton 
-                title="Sim"
-                active={onDietButtonMarked}
-                style="PRIMARY"
-                onPress={() => handleToggleButtons("yes")}
-              />
-              <ToggleButton 
-                title="Não"
-                active={outDietButtonMarked}
-                style="SECONDARY"
-                onPress={() => handleToggleButtons("no")}
-              />
-            </ToggleButtonsSection>            
-          </View>          
-        </Form>
-
-        <Button 
-          title={newMeal ? "Cadastrar refeição" : "Salvar alterações" }
+        <LabeledInput 
+          label="Nome"
+          value={title}
+          onChangeText={setTitle}    
+          maxLength={32}        
         />
-      </Main>
-    </Container>
+        <LabeledInput 
+          label="Descrição"
+          multiline
+          value={description}
+          onChangeText={setDescription}
+          height={120} 
+          maxLength={180} 
+        />
+
+        <DatetimeSection>
+          <InputWrapper>
+            <LabeledInput 
+              label="Data"
+              value={date}
+              onChangeText={setDate}
+              maxLength={10}
+            />
+          </InputWrapper>
+          <InputWrapper>
+            <LabeledInput 
+              label="Hora"
+              value={time}
+              onChangeText={setTime}
+              maxLength={5}
+            />
+          </InputWrapper>
+        </DatetimeSection>
+
+        <View>
+          <Label>
+            Está dentro da dieta?
+          </Label>
+          <ToggleButtonsSection>
+            <ToggleButton 
+              title="Sim"
+              active={onDietButtonMarked}
+              style="PRIMARY"
+              onPress={() => handleToggleButtons("yes")}
+            />
+            <ToggleButton 
+              title="Não"
+              active={outDietButtonMarked}
+              style="SECONDARY"
+              onPress={() => handleToggleButtons("no")}
+            />
+          </ToggleButtonsSection>            
+        </View> 
+                 
+      </Form>
+
+      <Button 
+        title={newMeal ? "Cadastrar refeição" : "Salvar alterações" }
+      />
+    </ScreenPattern>
+    
   )
 }
