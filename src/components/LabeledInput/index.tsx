@@ -4,15 +4,21 @@ import { Container, Label, Input } from "./styles";
 
 type Props = TextInputProps & {
   label: string,
+  height?: number,
+  format?: "date" | "time",
 }
 
-export function LabeledInput({ label, ...rest }: Props){
+export function LabeledInput({ label, height, format, ...rest }: Props){
+
   return(
     <Container>
       <Label>
         {label}
       </Label>
-      <Input {...rest}/>
+      <Input 
+        style={{ height }} 
+        {...rest} 
+      />
     </Container>
   )
 }

@@ -5,6 +5,7 @@ import { ArrowLeft } from "phosphor-react-native";
 export type ButtonProps = {
   styledButton?: boolean;
   onDiet?: boolean;
+  top?: number;
 }
 
 export const BackIcon = styled(ArrowLeft).attrs<ButtonProps>(({ theme, styledButton, onDiet }) => ({

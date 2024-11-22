@@ -1,11 +1,12 @@
 import { BackIcon, ButtonProps as Props } from "./styles";
 
 
-export function BackButton({ onDiet, styledButton = false }: Props){
+export function BackButton({ onDiet, top, styledButton = false }: Props){
   return(
     <BackIcon 
       onDiet={onDiet} 
-      styledButton={styledButton} 
+      styledButton={styledButton}
+      style={{ top: top }}       
     />
   )
 }

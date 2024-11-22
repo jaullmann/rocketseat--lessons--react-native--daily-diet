@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 import { View } from "react-native";
 
 
-type cardType = "REGULAR" | "GREEN" | "RED"
+type cardType = "REGULAR" | "GREEN" | "RED";
 
 export type StyleProps = {
   style?: cardType

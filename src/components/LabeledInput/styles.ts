@@ -1,16 +1,17 @@
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
-  flex: 1;  
+  width: 100%;  
   gap: 4px;
 
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
-  margin-bottom: 24px;
+  margin-bottom: 24px;  
 `
 
 export const Label = styled.Text`  
+  width: 100%;
   text-align: left;
 
   ${({ theme }) => css`
@@ -21,14 +22,13 @@ export const Label = styled.Text`
 `
 
 export const Input = styled.TextInput`  
-  width: 100%;
-  
-  min-height: 48px;
-  max-height: 48px;
-  
+  width: 100%;    
+  height: 48px;  
   padding: 14px;
   border-radius: 6px;
+  
   text-align: left;
+  vertical-align: top;
 
   ${({ theme }) => css`
     border: 1px solid ${theme.COLORS.GRAY_500};

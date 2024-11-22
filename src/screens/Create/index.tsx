@@ -1,23 +1,47 @@
 import { View } from "react-native";
 import { useState } from "react";
-import { Container, Title, Main, Form, 
+import { useRoute } from "@react-navigation/native";
+import { Container, Title, Main, Form, InputWrapper,
   DatetimeSection, Label, ToggleButtonsSection } from "./styles";
 import { BackButton } from "@components/BackButton";
 import { LabeledInput } from "@components/LabeledInput";
 import { ToggleButton } from "@components/ToggleButton";
 import { Button } from "@components/Button";
 
-export function Create(){
+type RouteParams = {
+  group: string;
+}
 
-  const [newMeal, setNewMeal] = useState(true);
+export function Create(){
+  
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
-  const [time, settime] = useState('');
+  const [time, setTime] = useState('');
+  const [onDietButtonMarked, setOnDietButtonMarked] = useState(false);
+  const [outDietButtonMarked, setOutDietButtonMarked] = useState(false);
+
+  // const route = useRoute()
+  // const { newMeal } = route.params as RouteParams;
+  const newMeal = false;
+
+  function handleToggleButtons(buttonPressed: string){
+    if (buttonPressed === 'yes') {
+      setOnDietButtonMarked(true);
+      if (outDietButtonMarked) {
+        setOutDietButtonMarked(false);
+      }
+    } else {
+      setOutDietButtonMarked(true);
+      if (onDietButtonMarked) {
+        setOnDietButtonMarked(false);
+      }
+    }
+  }
 
   return(
     <Container>
-      <BackButton />
+      <BackButton top={57} />
       <Title>
         {newMeal ? "Nova Refeição" : "Editar Refeição" }
       </Title>
@@ -25,11 +49,37 @@ export function Create(){
       <Main>
 
         <Form>
-          <LabeledInput label="Nome" />
-          <LabeledInput label="Descrição" />
+          <LabeledInput 
+            label="Nome"
+            value={title}
+            onChangeText={setTitle}    
+            maxLength={32}        
+          />
+          <LabeledInput 
+            label="Descrição"
+            multiline
+            value={description}
+            onChangeText={setDescription}
+            height={120} 
+            maxLength={180} 
+          />
           <DatetimeSection>
-            <LabeledInput label="Data" />
-            <LabeledInput label="Hora" />
+            <InputWrapper>
+              <LabeledInput 
+                label="Data"
+                value={date}
+                onChangeText={setDate}
+                maxLength={10}
+              />
+            </InputWrapper>
+            <InputWrapper>
+              <LabeledInput 
+                label="Hora"
+                value={time}
+                onChangeText={setTime}
+                maxLength={5}
+              />
+            </InputWrapper>
           </DatetimeSection>
           <View>
             <Label>
@@ -38,13 +88,15 @@ export function Create(){
             <ToggleButtonsSection>
               <ToggleButton 
                 title="Sim"
-                active={false}
+                active={onDietButtonMarked}
                 style="PRIMARY"
+                onPress={() => handleToggleButtons("yes")}
               />
               <ToggleButton 
                 title="Não"
-                active={false}
+                active={outDietButtonMarked}
                 style="SECONDARY"
+                onPress={() => handleToggleButtons("no")}
               />
             </ToggleButtonsSection>            
           </View>          

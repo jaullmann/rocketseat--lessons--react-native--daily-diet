@@ -5,11 +5,12 @@ type Props = TouchableOpacityProps & StyleProps & {
   title: string;
 }
 
-export function ToggleButton({ title, active, style }: Props){
+export function ToggleButton({ title, active, style, ...rest }: Props){
   return(
     <Button 
       active={active} 
       style={style}
+      {...rest}
     >      
       <ButtonIndicator 
         active={active} 

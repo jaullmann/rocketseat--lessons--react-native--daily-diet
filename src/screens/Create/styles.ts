@@ -37,8 +37,6 @@ export const Main = styled.View`
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 
-  border: 1px solid red;
-
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
 `
 
@@ -48,8 +46,6 @@ export const Form = styled.View`
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  
-  border: 1px solid green;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
 `
@@ -63,12 +59,15 @@ export const DatetimeSection = styled.View`
   justify-content: space-between;
   
   gap: 20px;
-
-  border: 1px solid blue;
 `
 
+export const InputWrapper = styled.View`
+  flex: 1;
+`;
+
+
 export const Label = styled.Text`  
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 
   text-align: left;
 
