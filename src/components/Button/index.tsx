@@ -4,9 +4,10 @@ import { ButtonTypeStyleProps, Container, Title, PlusIcon, EditIcon, DeleteIcon 
 type Props = TouchableOpacityProps & {
     title: string;
     type?: ButtonTypeStyleProps;
+    icon?: boolean;
 }
 
-export function Button({ title, type = 'REGULAR', ...rest }: Props){
+export function Button({ title, type = 'REGULAR', icon = true, ...rest }: Props){
     return(
         <Container type={type} {...rest}>
             { 
@@ -16,21 +17,21 @@ export function Button({ title, type = 'REGULAR', ...rest }: Props){
             { 
               type === 'ADD' && 
               <>
-                <PlusIcon />
+                {icon && <PlusIcon />}
                 <Title> {title} </Title>
               </>               
             }
             { 
               type === 'EDIT' && 
               <>
-                <EditIcon />
+                {icon && <EditIcon />}
                 <Title> {title} </Title>
               </>               
             }
             { 
               type === 'DELETE' && 
               <>
-                <DeleteIcon />
+                {icon && <DeleteIcon />}
                 <Title style={{ color: '#1B1D1E' }}> {title} </Title>
               </>               
             }

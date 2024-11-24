@@ -1,10 +1,8 @@
 import { View } from "react-native";
 import { useState } from "react";
 import { useRoute } from "@react-navigation/native";
-import { Container, Title, Main, Form, InputWrapper,
-  DatetimeSection, Label, ToggleButtonsSection } from "./styles";
+import { Form, InputWrapper, DatetimeSection, Label, ToggleButtonsSection } from "./styles";
 import { ScreenPattern } from "@components/ScreenPattern";
-import { BackButton } from "@components/BackButton";
 import { LabeledInput } from "@components/LabeledInput";
 import { ToggleButton } from "@components/ToggleButton";
 import { Button } from "@components/Button";
@@ -44,6 +42,7 @@ export function Create(){
     <ScreenPattern
       title={newMeal ? "Nova refeição" : "Editar refeição"}
     >
+      
       <Form>
 
         <LabeledInput 
