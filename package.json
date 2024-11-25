@@ -19,10 +19,11 @@
     "metro-file-map": "^0.81.0",
     "phosphor-react-native": "^2.2.1",
     "react": "18.3.1",
-    "react-native": "0.76.1",
+    "react-native": "0.76.1",   
     "react-native-screens": "~4.0.0",
     "react-native-svg": "15.8.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "@react-native-async-storage/async-storage": "1.23.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
