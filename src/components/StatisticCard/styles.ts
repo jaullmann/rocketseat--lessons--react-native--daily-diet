@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 
 type cardType = "REGULAR" | "GREEN" | "RED";
@@ -19,7 +19,7 @@ export const Container = styled(View)<StyleProps>`
   max-height: ${({ style }) => style === "REGULAR" ? 89 : 107 }px;    
 
   border-radius: 8px;
-  padding: 16px;
+  padding: ${({ style }) => style === "REGULAR" ? '16px' : '16px 22px'};
 
   background-color: ${({ theme, style }) => style === "REGULAR" ? 
     theme.COLORS.GRAY_600 : style === "GREEN" ? 
@@ -37,7 +37,7 @@ export const CardTitle = styled.Text`
   `};
 `
 
-export const CardDescription = styled.Text`
+export const CardDescription = styled(Text)<StyleProps>`
   text-align: center;
   
   ${({ theme }) => css`
@@ -45,4 +45,5 @@ export const CardDescription = styled.Text`
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.SM}px;        
   `};
+  
 `

@@ -34,7 +34,7 @@ export function AppRoutes(){
       />
 
       <Screen 
-        name="Statistics"
+        name="statistics"
         component={Statistics}
       />
 

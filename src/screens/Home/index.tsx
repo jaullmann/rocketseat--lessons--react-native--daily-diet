@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { FlatList } from 'react-native';
 import { Container, Header, Logo, Avatar, Label } from './styles';
@@ -30,6 +31,16 @@ export function Home(){
   const [score, setScore] = useState(0);
   const [scoreTarget, setScoreTarget] = useState(0.7);
 
+  const navigation = useNavigation();
+
+  function handleCurrentStatistics(){
+    navigation.navigate('statistics');
+  }
+
+  function handleNewMeal(){
+    navigation.navigate('create');
+  }
+
   return (
     <Container>
       
@@ -38,7 +49,11 @@ export function Home(){
         <Avatar source={avatarImg} />
       </Header>
 
-      <ScoreCard score={score} scoreTarget={scoreTarget}/>
+      <ScoreCard 
+        score={score} 
+        scoreTarget={scoreTarget}
+        onPress={handleCurrentStatistics}
+      />
 
       <Label>
         Refeições
@@ -47,6 +62,7 @@ export function Home(){
       <Button 
         title={'Adicionar Refeição'}
         type={'ADD'}
+        onPress={handleNewMeal}
       />  
 
       <FlatList 

@@ -7,6 +7,7 @@ import { LabeledInput } from "@components/LabeledInput";
 import { ToggleButton } from "@components/ToggleButton";
 import { Button } from "@components/Button";
 
+
 type RouteParams = {
   group: string;
 }
@@ -43,8 +44,7 @@ export function Create(){
       title={newMeal ? "Nova refeição" : "Editar refeição"}
     >
       
-      <Form>
-
+      <Form>        
         <LabeledInput 
           label="Nome"
           value={title}

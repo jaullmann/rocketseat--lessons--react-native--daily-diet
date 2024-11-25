@@ -47,6 +47,7 @@ export function Feedback(){
         />
         <Button 
           title="Ir para a página inicial"
+          style={{ width: 200 }}
         />
       </Wrapper>
     </Container>

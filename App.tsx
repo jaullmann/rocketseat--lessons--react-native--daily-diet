@@ -4,10 +4,8 @@ import { ThemeProvider } from "styled-components";
 import theme from "./src/theme";
 
 import { Routes } from "./src/routes";
-
 import { Loading } from "@components/Loading";
 
-import { Feedback } from "@screens/Feedback";
 import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans'
 
 export default function App() {
@@ -20,7 +18,7 @@ export default function App() {
           barStyle="light-content"
           backgroundColor={theme.COLORS.GRAY_200}          
         />
-        {fontsLoaded ? <Feedback /> : <Loading />}
+        {fontsLoaded ? <Routes /> : <Loading />}
       </>      
     </ThemeProvider>    
   );

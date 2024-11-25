@@ -6,7 +6,6 @@ import { Container, InfoWrapper, ButtonsWrapper, Title, Description,
   DatetimeLabel, StatusCard, StatusCardText, 
   StatusCardIndicator} from "./styles";
 
-
 export function Meal(){
   const [title, setTitle] = useState('Carregando...');
   const [description, setDescription] = useState('Carregando...');
@@ -40,6 +39,7 @@ export function Meal(){
             rightButtonFunction={() => {}}
           />
         }
+
         <InfoWrapper>
           <Title>
             {title}

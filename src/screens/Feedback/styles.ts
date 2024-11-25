@@ -54,6 +54,8 @@ export const BoldText = styled.Text`
 `
 
 export const Image = styled.Image`
+  margin-bottom: 32px;
+
   height: 288px;
   width: 224px;
 

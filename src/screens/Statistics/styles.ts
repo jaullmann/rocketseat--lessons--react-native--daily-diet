@@ -9,7 +9,7 @@ export const Container = styled(SafeAreaView)<ScreenProps>`
   flex: 1;
   position: relative;
 
-  padding-top: 72px;
+  padding-top: 48px;
   
   background-color: ${({ theme, onDiet }) => onDiet ? 
     theme.COLORS.GREEN_LIGHT :  theme.COLORS.RED_MID

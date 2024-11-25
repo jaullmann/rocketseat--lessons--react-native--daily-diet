@@ -23,6 +23,7 @@ export function Statistics(){
       <BackButton 
         styledButton
         onDiet={onDiet}
+        top={24}
       />
       <Title>
         {formatToPercentage(score)}
