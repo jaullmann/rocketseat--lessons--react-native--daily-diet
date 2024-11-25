@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ScreenPattern } from "@components/ScreenPattern";
 import { Button } from "@components/Button";
+import { AlertOptionModal } from "@components/AlertOptionModal";
 import { InfoWrapper, ButtonsWrapper, Title, Description, 
   DatetimeLabel, StatusCard, StatusCardText, 
   StatusCardIndicator} from "./styles";
@@ -16,6 +17,15 @@ export function Meal(){
 
   return(
     <ScreenPattern title="Refeição">
+
+      {/* <AlertOptionModal 
+        message="Deseja realmente excluir o registro da refeição?"
+        leftButtonText="Cancelar"
+        rightButtonText="Sim, excluir"
+        leftButtonFunction={() => {}}
+        rightButtonFunction={() => {}}
+      /> */}
+
       <InfoWrapper>
         <Title>
           {title}
