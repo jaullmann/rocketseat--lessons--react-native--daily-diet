@@ -1,3 +1,4 @@
+import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { css } from "styled-components/native";
 import { View } from "react-native";
 
@@ -5,16 +6,24 @@ type styleProps = {
   onDiet: boolean;
 }
 
+export const Container = styled(SafeAreaView)`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  justify-content: center;    
+`
+
 export const InfoWrapper = styled.View`  
   width: 100%;
-  justify-content: left;
+  justify-content: flex-start;
 `;
 
 export const ButtonsWrapper = styled.View`
   width: 100%;
   
   gap: 9px;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 export const Title = styled.Text`
@@ -68,7 +77,6 @@ export const StatusCard = styled.View`
 `;
 
 export const StatusCardText = styled.Text`
-
   ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_100};
     font-family: ${theme.FONT_FAMILY.BOLD};

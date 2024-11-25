@@ -3,12 +3,12 @@ import { View } from "react-native";
 
 export const ModalBackground = styled.View`
     position: absolute; 
-    top: -140px;
+    top: -170px;
     left: -40px;
     right: -40px;
     bottom: -140px;
 
-    height: 130%;     
+    height: 150%;     
 
     z-index: 999;
 

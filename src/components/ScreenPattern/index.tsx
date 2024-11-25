@@ -10,7 +10,7 @@ type Props = BackgroundProps & {
 export function ScreenPattern({ title, style = "REGULAR", children }: Props){
   return(
     <Container style={style}>
-      <BackButton top={57} />
+      <BackButton top={24} />
       <Title>
         {title}
       </Title>

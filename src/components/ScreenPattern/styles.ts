@@ -9,10 +9,10 @@ export type BackgroundProps = {
 }
 
 export const Container = styled(View)<BackgroundProps>`  
-  flex: 1;
+  flex: 1;  
   width: 100%;
 
-  padding-top: 57px;
+  padding-top: 24px;
   
   align-items: flex-start;
   justify-content: center;

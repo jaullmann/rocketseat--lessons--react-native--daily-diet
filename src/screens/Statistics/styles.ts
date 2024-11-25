@@ -1,12 +1,11 @@
+import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { css } from "styled-components/native";
-
-import { View } from "react-native";
 
 export type ScreenProps = {
   onDiet?: boolean
 }
 
-export const Container = styled(View)<ScreenProps>`
+export const Container = styled(SafeAreaView)<ScreenProps>`
   flex: 1;
   position: relative;
 
@@ -46,7 +45,7 @@ export const Main = styled.View`
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   
-  background-color: ${({ theme }) => theme.COLORS.GRAY_700}
+  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
 `
 export const CardsTitle = styled.Text`
   border-bottom: 11px;

@@ -25,7 +25,7 @@ const dates = meals.map((meal) => meal.date)
 const uniqueDates = Array.from(new Set(dates.map(date => date)));
 
 
-export function Home() {
+export function Home(){
 
   const [score, setScore] = useState(0);
   const [scoreTarget, setScoreTarget] = useState(0.7);

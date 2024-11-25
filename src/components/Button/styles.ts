@@ -32,7 +32,7 @@ export const Container = styled(TouchableOpacity)<ButtonProps>`
 
 export const Title = styled(Text)<ButtonProps>`
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
 
   color: ${({ theme, type }) => type === 'DELETE' 
     ? theme.COLORS.GRAY_200
