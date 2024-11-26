@@ -1,6 +1,10 @@
 import { View } from "react-native";
 import { useState } from "react";
 import { useRoute } from "@react-navigation/native";
+
+import { mealAdd } from "@storage/meal/mealAdd";
+
+import { formattedDate, formattedTime, isValidDate } from "@utils/functions";
 import { Form, InputWrapper, DatetimeSection, Label, ToggleButtonsSection } from "./styles";
 import { ScreenPattern } from "@components/ScreenPattern";
 import { LabeledInput } from "@components/LabeledInput";
@@ -21,9 +25,9 @@ export function Create(){
   const [onDietButtonMarked, setOnDietButtonMarked] = useState(false);
   const [outDietButtonMarked, setOutDietButtonMarked] = useState(false);
 
-  // const route = useRoute()
-  // const { newMeal } = route.params as RouteParams;
-  const newMeal = true;
+  const route = useRoute()
+  const id = route.params as RouteParams;
+  const newMeal = Boolean(!id);
 
   function handleToggleButtons(buttonPressed: string){
     if (buttonPressed === 'yes') {
@@ -37,6 +41,14 @@ export function Create(){
         setOnDietButtonMarked(false);
       }
     }
+  }
+
+  function isFormFilled(): boolean{
+    const titleFilled = Boolean(title);
+    const dateFilled = Boolean(date);
+    const timeFilled = Boolean(time);
+    const dietOptionChecked = onDietButtonMarked || outDietButtonMarked;
+    return titleFilled && dateFilled && timeFilled && dietOptionChecked
   }
 
   return(    
@@ -67,6 +79,7 @@ export function Create(){
               value={date}
               onChangeText={setDate}
               maxLength={10}
+              placeholder={formattedDate(new Date())}
             />
           </InputWrapper>
           <InputWrapper>
@@ -75,6 +88,7 @@ export function Create(){
               value={time}
               onChangeText={setTime}
               maxLength={5}
+              placeholder={formattedTime(new Date())}
             />
           </InputWrapper>
         </DatetimeSection>
@@ -103,6 +117,7 @@ export function Create(){
 
       <Button 
         title={newMeal ? "Cadastrar refeição" : "Salvar alterações" }
+        disabled={!isFormFilled()}
       />
     </ScreenPattern>
     
