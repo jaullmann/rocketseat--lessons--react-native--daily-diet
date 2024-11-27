@@ -1,15 +1,18 @@
 import { View } from "react-native";
 import { useState } from "react";
 import { useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { mealAdd } from "@storage/meal/mealAdd";
 
-import { formattedDate, formattedTime, isValidDate } from "@utils/functions";
+import { formattedDate, formattedTime, formatAmericanDate, isValidDate, isValidTime } from "@utils/functions";
+
 import { Form, InputWrapper, DatetimeSection, Label, ToggleButtonsSection } from "./styles";
 import { ScreenPattern } from "@components/ScreenPattern";
 import { LabeledInput } from "@components/LabeledInput";
 import { ToggleButton } from "@components/ToggleButton";
 import { Button } from "@components/Button";
+import { Alert } from "react-native";
 
 
 type RouteParams = {
@@ -24,6 +27,8 @@ export function Create(){
   const [time, setTime] = useState('');
   const [onDietButtonMarked, setOnDietButtonMarked] = useState(false);
   const [outDietButtonMarked, setOutDietButtonMarked] = useState(false);
+
+  const navigation = useNavigation();
 
   const route = useRoute()
   const id = route.params as RouteParams;
@@ -49,6 +54,28 @@ export function Create(){
     const timeFilled = Boolean(time);
     const dietOptionChecked = onDietButtonMarked || outDietButtonMarked;
     return titleFilled && dateFilled && timeFilled && dietOptionChecked
+  }
+
+  function handleCreateMeal(){
+    if (!isValidDate(date)) {
+      return Alert.alert('Cadastro de refeição', 'Insira uma data com formato válido (ex.: 30/12/2024)');
+    }
+    if (!isValidTime(time)) {
+      return Alert.alert('Cadastro de refeição', 'Insira uma hora com formato válido (ex.: 13:30)');
+    }
+    const datetime = `${formatAmericanDate(date)} ${time}`
+    if (!description) {
+      Alert.alert(
+        'Cadastro de refeição',
+        'Deseja salvar refeição sem incluir uma descrição?',
+        [
+          { text: 'Cancelar', style: 'cancel' },
+          { text: 'Cadastrar', onPress: () => mealAdd({ title, description, datetime, onDiet: onDietButtonMarked })}
+        ]
+      )      
+    }
+    Alert.alert('Cadastro de refeição', 'Refeição gravada com sucesso!');
+    return navigation.navigate("home");
   }
 
   return(    
@@ -117,6 +144,7 @@ export function Create(){
 
       <Button 
         title={newMeal ? "Cadastrar refeição" : "Salvar alterações" }
+        onPress={handleCreateMeal}
         disabled={!isFormFilled()}
       />
     </ScreenPattern>
