@@ -56,7 +56,7 @@ export function Create(){
     return titleFilled && dateFilled && timeFilled && dietOptionChecked
   }
 
-  function handleCreateMeal(){
+  async function handleCreateMeal(){
     if (!isValidDate(date)) {
       return Alert.alert('Cadastro de refeição', 'Insira uma data com formato válido (ex.: 30/12/2024)');
     }
@@ -70,9 +70,11 @@ export function Create(){
         'Deseja salvar refeição sem incluir uma descrição?',
         [
           { text: 'Cancelar', style: 'cancel' },
-          { text: 'Cadastrar', onPress: () => mealAdd({ title, description, datetime, onDiet: onDietButtonMarked })}
+          { text: 'Cadastrar', onPress: async() => await mealAdd({ title, description, date, time, onDiet: onDietButtonMarked, key: datetime }) }
         ]
       )      
+    } else {
+      await mealAdd({ title, description, date, time, onDiet: onDietButtonMarked, key: datetime });
     }
     Alert.alert('Cadastro de refeição', 'Refeição gravada com sucesso!');
     return navigation.navigate("home");

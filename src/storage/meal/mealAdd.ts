@@ -8,13 +8,13 @@ import { mealGetAll } from "./mealGetAll";
 export async function mealAdd(newMeal: MealStorageDTO) {
   try {
     const storedMeals = await mealGetAll();
-    const existsMealByDatetime = storedMeals.filter(meal => meal.datetime === newMeal.datetime);
+    const existsMealByKey = storedMeals.find(meal => meal.key === newMeal.key);
     
-    if (existsMealByDatetime) {
-      throw new AppError('Já existe uma refeição registrada neste dia e horário!');
+    if (existsMealByKey) {
+      throw new AppError('Já existe uma refeição salva neste dia e horário!');
     }
     const storage = JSON.stringify([...storedMeals, newMeal]);
-    await AsyncStorage.setItem(`${MEAL_COLLECTION}`, storage);
+    await AsyncStorage.setItem(MEAL_COLLECTION, storage);
 
   } catch(error) {
     throw error;
