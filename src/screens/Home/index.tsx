@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { mealGetAll } from '@storage/meal/mealGetAll';
 import { MealStorageDTO } from '@storage/meal/MealStorageDTO';
+import { mealStatistics } from '@storage/meal/mealStatistics';
+import { mealGetAll } from '@storage/meal/mealGetAll';
 
 import { Container, Header, Logo, Avatar, Label } from './styles';
 import { Alert, FlatList } from 'react-native';
@@ -20,7 +21,7 @@ export function Home(){
   const [isLoading, setIsLoading] = useState(true);
   const [meals, setMeals] = useState<MealStorageDTO[]>([]);
   const [dateLabels, setDateLabels] = useState<string[]>([]);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(1);
   const [scoreTarget, setScoreTarget] = useState(0.7);
 
   const navigation = useNavigation();
@@ -37,12 +38,14 @@ export function Home(){
     setIsLoading(true);
     try {
       const data = await mealGetAll();
-      setMeals(data);
+      const statsData = await mealStatistics();      
       const dates = data.map((meal) => meal.date);
       const uniqueDates = Array.from(new Set(dates));
+      setMeals(data);
+      setScore(statsData.userScore);
       setDateLabels(uniqueDates);        
     } catch(error) {
-      Alert.alert("Refeições", "Não foi possível obter as refeições do usuário.")
+      Alert.alert("Refeições", "Não foi possível obter dados de refeições.")
     } finally {
       setIsLoading(false);
     }  

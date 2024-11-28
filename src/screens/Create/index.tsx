@@ -113,11 +113,21 @@ export function Create(){
           ]
         );
       }
+
+      const meal = {
+        title, 
+        description, 
+        date, 
+        time, 
+        onDiet: 
+        onDietButtonMarked, 
+        key: id ? id : datetime
+      }
       
       if (id) {
-        await mealUpdate({ title, description, date, time, onDiet: onDietButtonMarked, key: id });
+        await mealUpdate(meal);
       } else {
-        await mealAdd({ title, description, date, time, onDiet: onDietButtonMarked, key: datetime });
+        await mealAdd(meal);
       }      
     
       navigation.navigate('feedback', { onDiet: onDietButtonMarked });
@@ -206,7 +216,7 @@ export function Create(){
       }
 
       <Button 
-        title={id ? "Salvar alterações" : "Cadastrar refeição"}
+        title={ id ? "Salvar alterações" : "Cadastrar refeição" }
         onPress={handleMeal}
         disabled={!isFormFilled()}
       />
