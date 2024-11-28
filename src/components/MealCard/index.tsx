@@ -7,9 +7,9 @@ type Props = TouchableOpacityProps & {
   onDiet: boolean,
 }
 
-export function MealCard({ time, title, onDiet }: Props){
+export function MealCard({ time, title, onDiet, ...rest }: Props){
   return(
-    <Container onDiet={onDiet}>
+    <Container onDiet={onDiet} {...rest}>
       
       <Timestamp>
         {time}

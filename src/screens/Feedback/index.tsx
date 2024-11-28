@@ -18,10 +18,13 @@ type RouteParams = {
 
 export function Feedback(){
 
-  // const navigation = useNavigation();
-  // const route = useRoute();
-  // const { onDiet } = route.params as RouteParams;
-  const onDiet = true;
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { onDiet } = route.params as RouteParams;
+
+  function handleGoBack(){
+    navigation.navigate('home');
+  }
 
   return(
     <Container>
@@ -48,6 +51,7 @@ export function Feedback(){
         <Button 
           title="Ir para a página inicial"
           style={{ width: 200 }}
+          onPress={handleGoBack}
         />
       </Wrapper>
     </Container>

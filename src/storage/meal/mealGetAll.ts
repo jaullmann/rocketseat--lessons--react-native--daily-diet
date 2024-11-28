@@ -9,6 +9,16 @@ export async function mealGetAll(): Promise<MealStorageDTO[]> {
 
     const meals: MealStorageDTO[] = storage ? JSON.parse(storage) : [];
 
+    if (meals.length > 0) {
+      const sortedMeals = meals.sort((a, b) => {
+        const mealA = Number(a.key.replace(/\D/g, ""));
+        const mealB = Number(b.key.replace(/\D/g, ""));
+        return mealB - mealA;
+      });
+
+      return sortedMeals
+    }    
+
     return meals;
   } catch (error) {
     throw error;

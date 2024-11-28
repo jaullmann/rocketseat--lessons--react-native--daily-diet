@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { FlatList, View } from "react-native";
 
 import { DateLabel } from "@components/DateLabel";
@@ -17,24 +18,24 @@ type DailyCardsGroupProps = {
 };
 
 export function DailyCardsGroup({ dailyMeals }: DailyCardsGroupProps) {
+  const navigation = useNavigation();
+  
+  function handleMealDetails(id: string){
+    navigation.navigate("meal", { id });
+  }
+
   return(
     <View>
       {dailyMeals.length > 0 && <DateLabel date={dailyMeals[0].date} />}
       <FlatList 
-        data={[...dailyMeals].sort((a, b) => {
-          const parseTime = (timeString: string) => {
-            const [hours, minutes] = timeString.split(':').map(Number); 
-            return hours * 60 + minutes; 
-          };
-          return parseTime(a.time) - parseTime(b.time); 
-        })}
+        data={dailyMeals}        
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <MealCard             
             time={item.time}
             title={item.title}
             onDiet={item.onDiet}
-            onPress={() => {}}
+            onPress={() => handleMealDetails(item.key)}
           />
         )}        
       />

@@ -8,11 +8,11 @@ type Props = TouchableOpacityProps & {
     icon?: boolean;
 }
 
-export function Button({ title, type = 'REGULAR', icon = true, ...rest }: Props){
+export function Button({ title, type = 'REGULAR', icon = true, disabled = false, ...rest }: Props){
   const { COLORS } = useTheme();
 
   return(
-    <Container type={type} {...rest}>
+    <Container type={type} disabled={disabled} {...rest} >
       { 
         type === 'REGULAR' && 
         <Title> {title} </Title> 

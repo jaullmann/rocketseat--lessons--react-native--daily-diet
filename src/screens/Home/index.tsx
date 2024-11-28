@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { mealGetAll } from '@storage/meal/mealGetAll';
 import { MealStorageDTO } from '@storage/meal/MealStorageDTO';
@@ -30,7 +30,7 @@ export function Home(){
   }
 
   function handleNewMeal(){
-    navigation.navigate('create');
+    navigation.navigate('create', { id: undefined });
   }
 
   async function fetchMeals(){
@@ -40,26 +40,17 @@ export function Home(){
       setMeals(data);
       const dates = data.map((meal) => meal.date);
       const uniqueDates = Array.from(new Set(dates));
-      const sortedDates = uniqueDates.sort((a, b) => {        
-        const parseBrazilianDate = (date: string): number => {
-          const [day, month, year] = date.split('/').map(Number);
-          return new Date(`${year}-${month}-${day}`).getTime(); 
-        };      
-        const dateA = parseBrazilianDate(a);
-        const dateB = parseBrazilianDate(b);      
-        return dateB - dateA; // Newest to oldest
-      });
-      setDateLabels(sortedDates);        
-    } catch(e) {
+      setDateLabels(uniqueDates);        
+    } catch(error) {
       Alert.alert("Refeições", "Não foi possível obter as refeições do usuário.")
     } finally {
       setIsLoading(false);
     }  
-  }
+  }  
 
-  useFocusEffect(useCallback(() => {
+  useEffect(() => {
     fetchMeals()
-  },[]))
+  },[])
 
   return (
     <Container>

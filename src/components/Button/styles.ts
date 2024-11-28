@@ -22,12 +22,12 @@ export const Container = styled(TouchableOpacity)<ButtonProps>`
   justify-content: center;
   gap: 12px;
 
-  background-color: ${({ theme, type }) => type === 'DELETE' 
-    ? theme.COLORS.WHITE
-    : theme.COLORS.GRAY_200
+  background-color: ${({ theme, type, disabled }) => disabled ? 
+    theme.COLORS.GRAY_400 : type === 'DELETE' ? 
+      theme.COLORS.WHITE : theme.COLORS.GRAY_200
   };
 
-  border: 1px solid ${({ theme }) => theme.COLORS.GRAY_200};
+  border: 1px solid ${({ theme, disabled }) => disabled ? theme.COLORS.GRAY_400 : theme.COLORS.GRAY_200};
 `
 
 export const Title = styled(Text)<ButtonProps>`

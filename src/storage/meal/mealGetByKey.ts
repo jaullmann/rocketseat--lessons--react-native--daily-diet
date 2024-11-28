@@ -9,15 +9,10 @@ export async function mealGetByKey(key: string): Promise<MealStorageDTO | undefi
 
     const meals: MealStorageDTO[] = storage ? JSON.parse(storage) : [];
 
-    if (meals.length > 0) {
-      const filteredMeal = meals.find(meal => meal.key === key);
-      if (filteredMeal) {
-        return filteredMeal
-      }
-    } 
+    const filteredMeal = meals.find(meal => meal.key === key);
 
-    return undefined;
-    
+    return filteredMeal ? filteredMeal : undefined
+
   } catch (error) {
     throw error;
   }

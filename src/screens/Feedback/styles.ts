@@ -2,7 +2,6 @@ import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text } from 'react-native';
 
-
 type styleProps = {
   onDiet: boolean
 }
