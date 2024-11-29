@@ -21,8 +21,8 @@ export function Home(){
   const [isLoading, setIsLoading] = useState(true);
   const [meals, setMeals] = useState<MealStorageDTO[]>([]);
   const [dateLabels, setDateLabels] = useState<string[]>([]);
-  const [score, setScore] = useState(1);
   const [scoreTarget, setScoreTarget] = useState(0.7);
+  const [score, setScore] = useState(1);
 
   const navigation = useNavigation();
 

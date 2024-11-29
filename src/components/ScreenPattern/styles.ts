@@ -35,7 +35,8 @@ export const Title = styled.Text`
 `
 
 export const Main = styled.View`
-  flex: 1;
+  flex: 1;  
+  gap: 60px;
 
   width: 100%;  
   margin-top: 24px;

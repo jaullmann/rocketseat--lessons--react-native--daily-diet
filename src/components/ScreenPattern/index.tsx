@@ -1,3 +1,4 @@
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { ReactNode } from "react";
 import { BackButton } from "@components/BackButton";
 import { BackgroundProps, Container, Title, Main } from "./styles";
@@ -9,14 +10,16 @@ type Props = BackgroundProps & {
 
 export function ScreenPattern({ title, style = "REGULAR", children }: Props){
   return(
-    <Container style={style}>
-      <BackButton />
-      <Title>
-        {title}
-      </Title>
-      <Main>
-        {children}
-      </Main>
-    </Container>
+    <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <Container style={style}>
+        <BackButton />
+        <Title>
+          {title}
+        </Title>
+        <Main>
+          {children}
+        </Main>
+      </Container>
+    </KeyboardAwareScrollView>
   )
 }
