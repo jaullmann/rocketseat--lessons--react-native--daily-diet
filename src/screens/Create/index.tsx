@@ -178,6 +178,7 @@ export function Create(){
                     onChangeText={setDate}
                     maxLength={10}
                     placeholder={formattedDate(new Date())}
+                    format="date"
                   />
                 </InputWrapper>
                 <InputWrapper>
@@ -187,6 +188,7 @@ export function Create(){
                     onChangeText={setTime}
                     maxLength={5}
                     placeholder={formattedTime(new Date())}
+                    format="time"
                   />
                 </InputWrapper>
               </DatetimeSection>
