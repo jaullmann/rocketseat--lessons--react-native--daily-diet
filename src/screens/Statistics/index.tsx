@@ -52,7 +52,7 @@ export function Statistics(){
         <Loading />
       ) : (
         <>
-          <BackButton styledButton onDiet={onDiet} top={24} />
+          <BackButton styledButton onDiet={onDiet} left={24}/>
           <Title>{formatToPercentage(score)}</Title>
           <Description>das refeições dentro da meta</Description>
 

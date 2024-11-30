@@ -19,7 +19,7 @@ export const Container = styled(View)<StyleProps>`
   max-height: ${({ style }) => style === "REGULAR" ? 89 : 107 }px;    
 
   border-radius: 8px;
-  padding: ${({ style }) => style === "REGULAR" ? '16px' : '16px 22px'};
+  padding: ${({ style }) => style === "REGULAR" ? '16px' : '16px 28px'};
 
   background-color: ${({ theme, style }) => style === "REGULAR" ? 
     theme.COLORS.GRAY_600 : style === "GREEN" ? 

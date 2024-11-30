@@ -72,7 +72,7 @@ export function Meal(){
   }, [])
 
   return(
-    <Container>
+  
       <ScreenPattern title="Refeição">
 
         {
@@ -121,6 +121,6 @@ export function Meal(){
             />
         </ButtonsWrapper>
       </ScreenPattern>
-    </Container>
+    
   )
 }

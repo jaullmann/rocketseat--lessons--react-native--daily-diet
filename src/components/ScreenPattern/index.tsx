@@ -12,7 +12,7 @@ export function ScreenPattern({ title, style = "REGULAR", children }: Props){
   return(
     <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <Container style={style}>
-        <BackButton />
+        <BackButton top={24} left={24}/>
         <Title>
           {title}
         </Title>

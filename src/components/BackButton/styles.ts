@@ -1,20 +1,17 @@
 import styled from "styled-components/native";
-import { TouchableOpacityProps } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
 
 export type ButtonProps = {
   styledButton?: boolean;
   onDiet?: boolean;
   top?: number;
+  left?: number;
+  position?: string;
 }
 
 export const Button = styled.TouchableOpacity`
-  position: absolute;  
-  
-  top: 24px;
-  left: 24px;
-
-  align-items: center;
+  width: 100%;
+  align-items: flex-start;
   justify-content: center;
 
   z-index: 100;

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { View } from "react-native";
+import { SafeAreaView } from "react-native";
 
 type colorType = "REGULAR" | "GREEN" | "RED";
 
@@ -7,7 +7,7 @@ export type BackgroundProps = {
   style?: colorType;
 }
 
-export const Container = styled(View)<BackgroundProps>`  
+export const Container = styled(SafeAreaView)<BackgroundProps>`  
   flex: 1;  
   width: 100%;
 

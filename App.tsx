@@ -1,4 +1,5 @@
 import { StatusBar } from "react-native";
+import { Platform } from "react-native";
 
 import { ThemeProvider } from "styled-components";
 import theme from "./src/theme";
@@ -15,8 +16,8 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <>
         <StatusBar 
-          barStyle="light-content"
-          backgroundColor={theme.COLORS.GRAY_200}          
+          barStyle={Platform.OS === 'ios' ? "dark-content" : "light-content"}
+          backgroundColor={theme.COLORS.GRAY_100}          
         />
         {fontsLoaded ? <Routes /> : <Loading />}
       </>      

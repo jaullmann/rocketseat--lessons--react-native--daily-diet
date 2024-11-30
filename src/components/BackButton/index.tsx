@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Button, BackIcon, ButtonProps as Props } from "./styles";
 
 
-export function BackButton({ onDiet, top, styledButton = false }: Props){
+export function BackButton({ onDiet, top, left, styledButton = false }: Props){
   const navigation = useNavigation();
 
   function handlePreviousScreen() {
@@ -18,7 +18,7 @@ export function BackButton({ onDiet, top, styledButton = false }: Props){
       <BackIcon 
         onDiet={onDiet} 
         styledButton={styledButton}
-        style={{ top: top }}             
+        style={{ top: top, left: left }}             
       />
     </Button>    
   )
